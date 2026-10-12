@@ -7,6 +7,13 @@ import { errorHandler } from "./src/middleware/error-handler.js";
 
 import mainRouter from "./src/api/main.routes.js";
 
+   require('dotenv').config();           // at the very top
+   const cors = require('cors');
+   app.use(cors({ origin: process.env.FRONTEND_URL }));   // before your routes
+
+   const PORT = process.env.PORT || 3000; // replaces any fixed port
+   app.listen(PORT, () => console.log('Server running on ' + PORT));
+
 const app = express();
 
 // Allow resources from your frontend port
