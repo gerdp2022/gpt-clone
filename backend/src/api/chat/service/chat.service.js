@@ -90,7 +90,7 @@ export async function createConversationService(question) {
 
     //* insert new conversation into database
     const [result] = await db.execute(
-      `INSERT INTO conversations (content, role) VALUES (?, "user")`,
+      `INSERT INTO conversations (content, role) VALUES (?, 'user')`,
       [question],
     );
 
